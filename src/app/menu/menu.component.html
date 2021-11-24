@@ -1,0 +1,65 @@
+<div class="container px-0 menu">
+
+    <div class="row mx-0 menu-movil justify-content-between align-items-center">
+        <div class="col-3">
+            <img src="../../assets/img/logo2.png" alt="" class="menu-movil__logo">
+        </div>
+        <div class="col-2">
+            <button (click)="menudesplegue()" class="btn-bars"><i class="fas fa-bars"></i></button>
+        </div>
+        
+    </div>
+
+    <div class="row mx-0">
+        <ul class="col-12 desplegable">
+            <!--<li class="desplegable__item"><button (click)="contenido='inicio'"  class="desplegable__link">Inicio</button></li>-->
+            <li class="desplegable__item"><button (click)="contenido='perfil'"  class="desplegable__link">Perfil</button></li>
+            <li class="desplegable__item"><button (click)="contenido='buscar'"  class="desplegable__link">Buscar</button></li>
+            <li class="desplegable__item"><button (click)="contenido='buscar'"  class="desplegable__link">Tutor</button></li>
+            <li class="desplegable__item"><button [routerLink]="['/sesion']"  class="desplegable__link">Cerrar Sesion</button></li>
+        </ul>
+    </div>
+
+    <div class="row mx-0 menu__row">
+
+        <div class="col-3 px-0 menu__content">
+            <img src="../../assets/img/logo.png" alt="" class="menu__logo">
+            <p class="menu__nombre">Paola Gutierrez</p>
+            <ul class="menu__list">
+                <!--
+                <li class="menu__item">
+                    <button (click)="contenido='inicio'" class="btn menu__btn {{(contenido=='inicio')?'menu__btn-select':''}}">Inicio</button>
+                </li>
+                -->
+                <li class="menu__item">
+                    <button (click)="contenido='perfil'" class="btn menu__btn {{(contenido=='perfil')?'menu__btn-select':''}}">Perfil</button>
+                </li>
+                <li class="menu__item">
+                    <button (click)="contenido='buscar'" class="btn menu__btn {{(contenido=='buscar')?'menu__btn-select':''}}">Buscar</button>
+                </li>
+                <li class="menu__item">
+                    <button (click)="contenido='tutor'" class="btn menu__btn {{(contenido=='tutor')?'menu__btn-select':''}}">Tutor</button>
+                </li>
+                <li class="menu__item">
+                    <button [routerLink]="['/sesion']" class="btn menu__btn-cerrar">Cerrar Sesion</button>
+                </li>
+            </ul>
+        </div>
+
+        <div *ngIf="contenido=='inicio'" class="col-12 col-sm-9">
+            <app-inicio></app-inicio>
+        </div>
+
+        <div *ngIf="contenido=='perfil'" class="col-12 col-sm-9">
+            <app-perfil></app-perfil>
+        </div>
+
+        <div *ngIf="contenido=='buscar'" class="col-12 col-sm-9">
+            <app-buscar></app-buscar>
+        </div>
+
+        
+
+    </div>
+</div>
+

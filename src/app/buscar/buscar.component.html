@@ -1,0 +1,75 @@
+<div *ngIf="opcion=='buscar'" class="buscar__inicio">
+    <p class="titulo">¿QUE BUSCAS?</p>
+    <div class="buscar__opciones">
+        <button (click)="opcion = 'tutor'" class="btn  btn-tutor mr-3">UN TUTOR</button>
+        <button (click)="opcion = 'sertutor'" class="btn btn-otro">SER TUTOR</button>
+    </div>
+</div>
+
+<div *ngIf="opcion=='tutor'" class="buscar__tutor">
+    <p class="titulo"> <button (click)="opcion = 'buscar'" class="back"><i class="fas fa-arrow-left"></i></button> Busco tutor para....</p>
+    
+    <div class="container px-0">
+        <div class="row mx-0">
+            <div class="col-sm-6 p0s">
+                <select name="" id="" class="custom-select">
+                    <option *ngFor="let materia of materias" value="">{{materia}}</option>
+                </select>
+
+                <div class="lista-tutores">
+                    <button *ngFor="let tutor of tutores; let i=index" class="tutor" (click)="setTutor(tutor,i)">
+                        <img src="../../assets/img/{{tutor.img}}" alt="" class="tutor__foto">
+                        <p class="tutor__nombre">{{tutor.nombre}}</p>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-6 p0s">
+                <div class="tutor__info" *ngIf="nombre_tutor != ''">
+                    <img src="../../assets/img/{{tutor__img}}" alt="" class="tutor__info-foto my-3">
+                    <div class="tutor__info-content">
+                        <p class="tutor__info-nombre">{{nombre_tutor}}</p>
+                        <p class="tutor__info-text">Carrera: <spam class="tutor__info-claro">Ingenieria en sistemas</spam></p>
+                        <p class="tutor__info-text">Semestre: <spam class="tutor__info-claro">9</spam></p>
+                        <p class="tutor__info-text">Materias: <spam class="tutor__info-claro">progra....</spam></p>
+                        <button (click)="changeSol()" class="btn {{(nombre_sol)? 'tutor__info2-btn' : 'tutor__info-btn'}}">{{(nombre_sol)? 'Solicitud enviada':'Enviar solicitud'}}<i class="far fa-bell"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<div *ngIf="opcion=='sertutor'" class="buscar__sertutor">
+    <p class="titulo"> <button (click)="opcion = 'buscar'" class="back"><i class="fas fa-arrow-left"></i></button> Mis materias...</p>
+    <div class="container px-0">
+        <div class="row mx-0">
+            <p><span *ngFor="let materia of misMaterias" class="badge badge-info mr-2">{{materia}} <a href="" class="borrarM">X</a></span> <span class="badge badge-success"><a class="añadirM" href="">Añadir otra</a></span></p>
+        </div>
+
+        <div class="row mx-0 mt-4">
+            <p class="titulo">Solicitudes</p>
+            <table class="table table-hover ">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Materia</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody class="solicitudes__table">
+                  <tr *ngFor="let solicitud of solicitudes">
+                    <th>{{solicitud.nombre}}</th>
+                    <td>{{solicitud.materia}}</td>
+                    <td class="buscar__acciones">
+                        <button class="btn btn__mensaje btn__accion"><i class="fas fa-comment-dots"></i></button>
+                        <button class="btn btn__rechazar btn__accion"><i class="fas fa-times"></i></button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

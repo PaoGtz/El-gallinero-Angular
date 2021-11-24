@@ -1,0 +1,13 @@
+.sesion{height: 100%;}
+.sesion__row{height: 100%;}
+.sesion__titulo{font-size: 2.3rem;font-family: 'Mochiy Pop P One', sans-serif;}
+.sesion__logo{height: 200px;}
+.sesion__left{display: flex;align-items: center;justify-content: center;flex-direction: column; height: 100%;}
+.sesion__content{width: 70%;}
+.sesion__right{display: flex;justify-content: center;align-items: center;height: 100%;text-align: center;}
+.sesion__bottom{font-size: 1rem; color: black;}
+.btn__blue{width: 48%;}
+@media only screen and (max-width: 767px) {
+.sesion__content{width: 100%;}
+.sesion__titulo{font-size: 2rem;}
+}

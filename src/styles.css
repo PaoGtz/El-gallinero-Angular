@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --c-primario: rgb(248, 129, 113);
+    --c-secundario: rgb(20, 89, 179);
+}
+body{margin: 0;font-family: 'Montserrat', sans-serif; font-size: 14px;}
+.el-galliero__bg{background-color: var(--c-primario); position: relative; height: 100vh; display: flex;justify-content: center;align-items: center;}
+.el-gallinero__content{background-color: #FFF;position: absolute;height: 90vh; width: 90%;  border-radius: 10px;box-shadow: 5px 0px 10px rgb(0 42 77 / 20%);  }
+
+p{font-size: 1rem;}
+.titulo{font-size: 1.7rem;font-family: 'Mochiy Pop P One', sans-serif;}
+.text-center{text-align: center;}
+
+.form__label{font-size: 1.1rem;}
+.form__input{font-size: 1.1rem; width: 100%; padding: 5px; border: 1px solid rgb(146, 145, 145); border-radius: 5px;}
+.form__item{padding: .5em;}
+
+.btn{box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%; padding: 5px 10px; border-radius: 5px; border: none; color: #fff;font-size: 1.3rem;}
+.btn__blue{background-color: var(--c-secundario);font-family: 'Mochiy Pop P One', sans-serif;}
+.btn:hover{color: #fff}
+.btn__blue:hover{background-color:rgb(30, 116, 228);}
+.container{max-width: initial;}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.699); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(138, 137, 137); 
+  }
+@media only screen and (max-width: 767px) {
+    
+  body{ font-size: 12px;}
+  .btn{font-size: 1.1rem;}
+  .form__input {font-size: 1.02rem;}
+  .el-gallinero__content{width: 95%; height: 96vh;}
+  .titulo{font-size: 1.5rem;}
+  .el-gallinero__content{min-height: 96vh; height: initial;}
+  .p0s{padding: 0;}
+}

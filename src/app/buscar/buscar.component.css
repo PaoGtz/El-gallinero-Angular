@@ -1,0 +1,41 @@
+.buscar__inicio{height: 100%; width: 100%; justify-content: center;align-items: center; display: flex; flex-direction: column;}
+.buscar__opciones{display: flex; justify-content: center;}
+.btn-tutor{background-color: rgb(15, 199, 231)}
+.btn-otro{background-color: rgb(253, 158, 80)}
+.back{background:none; border: none;}
+
+.buscar__tutor{padding: 1em;}
+.lista-tutores{height: 70vh; overflow-y: auto; margin-top: 1em;}
+.tutor__foto{border-radius: 50%; height: 120px; width: 90px; object-fit: cover;}
+.tutor{display: flex; align-items: center;width: 100%; background: none; border: none; margin-bottom: 1em;}
+.tutor:hover{background-color:rgb(241, 245, 245) ;}
+.tutor__nombre{font-weight: bold; margin-left: 1em;}
+
+.tutor__info{background-color:rgb(241, 245, 245) ; height: 100%; padding: 1em; display: flex; flex-direction: column; align-items: center;}
+.tutor__info-foto{height: 150px; width: 150px; border-radius: 50%;}
+.tutor__info-nombre{font-family: 'Mochiy Pop P One', sans-serif;font-weight: bold; text-align: center;}
+
+.tutor__info-claro{font-size: 1rem; color: rgba(68, 68, 68, 0.76);}
+.tutor__info-btn{background-color: rgba(255, 215, 40, 0.733);}
+.tutor__info-btn:hover{background-color: rgba(201, 170, 31, 0.733);}
+.tutor__info2-btn,.btn__aceptar{background-color: rgba(93, 201, 31, 0.979);;}
+.tutor__info2-btn:hover,.btn__aceptar:hover{background-color: rgba(93, 201, 31, 0.733);}
+.buscar__sertutor{padding: 1em;}
+.borrarM{font-size: .7rem; color: white; margin-left: 1em;}
+.borrarM:hover{text-decoration: none; color: tomato;}
+.añadirM{color: white; padding: 0 2em;}
+.añadirM:hover{text-decoration: none; color: white;}
+th,td{text-align: center;}
+.buscar__acciones{display: flex; justify-content: center;}
+.btn__accion{margin: 0 3%;}
+.btn__rechazar{background-color: rgb(248, 129, 113);;}
+.btn__rechazar:hover{background-color: rgba(248, 129, 113, 0.822);;}
+.btn__mensaje{background-color: rgb(55, 165, 216);}
+.btn__mensaje:hover{background-color:rgba(55, 165, 216, 0.849);}
+.solicitudes__table{max-height: 50vh; overflow-y: auto;}
+@media only screen and (max-width: 767px) {
+    .tutor__foto{height: 100px; width: 80px;}
+    .lista-tutores{height: 35vh;}
+    .tutor__info{margin-top: 1em; height: 30vh;overflow-y: auto;}
+    .tutor__info-foto{height: 100px; width: 100px;}
+}

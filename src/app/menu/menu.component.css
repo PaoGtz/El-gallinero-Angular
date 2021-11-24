@@ -1,0 +1,23 @@
+.menu{height: 100%;}
+.menu__row{height: 100%;}
+.menu__content{display: flex;justify-content: center; align-items: center;flex-direction: column;height: 100%; background-color: rgb(218, 85, 67); border-radius: 10px 0 0px 10px ;}
+.menu__logo{height: 250px;}
+.menu__nombre{font-size:1.2rem;font-family: 'Mochiy Pop P One', sans-serif;}
+.menu__list{list-style: none;padding: 0;}
+.menu__item{padding: .5em 1em;}
+.menu__btn{background-color: rgb(190, 71, 55);font-size: 1.2em;color: rgb(255, 239, 239);}
+.menu__btn-cerrar{background-color: rgb(167, 61, 48);font-size: 1.2em;color: rgb(255, 239, 239);}
+.menu__btn-select{background-color: rgba(190, 71, 55, 0.774);color: rgba(255, 255, 255, 0.432); box-shadow: none;}
+
+.menu-movil{display: none;width: 100%; padding: 1em;background-color: rgb(218, 85, 67); border-radius: 10px 10px 0px 0px ;}
+.menu-movil__logo{max-width: 100%;}
+.btn-bars{border: none;font-size: 2rem; background: none; color: white;}
+
+.desplegable{display: none;z-index: 10;;position: absolute;padding: 1em;background-color: rgb(218, 85, 67);list-style: none;}
+.desplegable__item{text-align: center;}
+.desplegable__link{width: 100%;font-size: 1.2rem; color: white; background: none; border: none;padding: .5em 0; }
+
+@media only screen and (max-width: 767px) {
+    .menu__content{display: none;}
+    .menu-movil{display: flex;}
+}

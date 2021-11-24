@@ -1,0 +1,22 @@
+<div class="inicio">
+
+
+    <div class="inicio__header">
+        <p class="titulo">MI INICIO</p>
+    </div>
+
+    <div class="inicio__publicaciones" >
+        
+        <div class="publicacion" *ngFor="let publicacion of publicaciones; let i=index">
+            <div class="publicacion__top">
+                <a href=""><img src="../../assets/img/{{publicacion.foto}}" alt="" class="publicacion__usr"></a>
+                <a href="" class="publicacion__usr-name">{{publicacion.nombre}}</a>
+                <button (click)="like(i)" class="publicacion__like {{(publicacion.like)? 'publicacion__like-up':''}}"><i class="fas fa-heart"></i></button>
+            </div>
+            <a href="../../assets/img/{{publicacion.publica}}" data-lightbox="{{publicacion.publica}}">
+                <img class="publicacion__img" src="../../assets/img/{{publicacion.publica}}" alt="">
+            </a>
+        </div>
+    </div>
+
+</div>

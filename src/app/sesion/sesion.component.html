@@ -1,0 +1,57 @@
+<div class="container sesion px-0">
+    <div class="row mx-0 sesion__row justify-content-center">
+        
+        <div class="col-sm-8 col-12 sesion__right">
+            
+            <div class="sesion__content">
+                <img src="../../assets/img/logo2.png" alt="" class="sesion__logo">
+            <p class="sesion__titulo">El Gallinero</p>
+                <form action="" *ngIf="!registrar">
+
+                    <div class="form__item">
+                        <input placeholder="Id" name="usrid" type="number" class="form__input" [(ngModel)]="login.usrid">
+                    </div>
+
+                    <div class="form__item">
+                        <input placeholder="Contraseña" name="passw" type="password" class="form__input" [(ngModel)]="login.passw">
+                    </div>
+
+                    <div class="form__item">
+                        <a (click)="iniciarSesion()" href="javascript:void(0)" class="btn btn__blue">Iniciar Sesion</a>
+                    </div>
+
+                    <div class="form__item">
+                        <p class="sesion__bottom">¿No tienes cuenta? <a href="javascript:void(0)" (click)="registrar = true">Registrarse ahora</a></p>
+                    </div>
+
+                </form>
+                <form action="" *ngIf="registrar">
+
+                    <div class="form__item">
+                        <input required placeholder="Id" name="idnuevo" type="number" class="form__input" [(ngModel)]="nuevousr.idnuevo">
+                    </div>
+                    <div class="form__item">
+                        <input required placeholder="Nombre completo" name="nombre" type="text" class="form__input" [(ngModel)]="nuevousr.nombre">
+                    </div>
+
+                    <div class="form__item">
+                        <input required placeholder="Contraseña" name="contra" type="password" class="form__input" [(ngModel)]="nuevousr.contra">
+                    </div>
+
+                    <div class="form__item">
+                        <select name="" id="" class="custom-select" name="centro" required [(ngModel)]="nuevousr.centro">
+                            <option *ngFor="let centro of centros" value="{{centro}}">{{centro}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form__item d-flex justify-content-between align-items-center">
+                        <p class="sesion__bottom btn-50"><a href="javascript:void(0)" (click)="registrar = false">Volver</a></p>
+                        <button class="btn btn__blue btn-50"  (click)="registrarUsuario()">Registrarme</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
