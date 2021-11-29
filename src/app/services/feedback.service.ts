@@ -25,4 +25,11 @@ export class FeedbackService {
       'success'
     )
   }
+  
+  Mensaje(title, message){
+    Swal.fire(
+      title,
+      message
+    )
+  }
 }

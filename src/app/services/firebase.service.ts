@@ -80,7 +80,6 @@ cambiarFoto(nuevoValor,id){
     return new Promise((resolve,reject)=>{
       let sub:Subscription = this.db.object('/USUARIOS/').valueChanges().subscribe((users)=>{
         sub.unsubscribe();
-        console.log(users)
         resolve(users)
       },(err)=>{
         sub.unsubscribe();
@@ -88,6 +87,72 @@ cambiarFoto(nuevoValor,id){
       })
     })
   }
+
+  getSolicitudSerTutor(userId) {
+    return new Promise((resolve,reject)=>{
+      let sub:Subscription = this.db.object('/SOLICITUDESserTutor/' + userId).valueChanges().subscribe((user)=>{
+        sub.unsubscribe();
+        resolve(user)
+      },(err)=>{
+        sub.unsubscribe();
+        reject(err)
+      })
+    })
+    
+  }
+
+  getSolicitudesSerTutor(){
+    return new Promise((resolve,reject)=>{
+      let sub:Subscription = this.db.object('/SOLICITUDESserTutor/').valueChanges().subscribe((users)=>{
+        sub.unsubscribe();
+        resolve(users)
+      },(err)=>{
+        sub.unsubscribe();
+        reject(err)
+      })
+    })
+  }
+
+  getUsuario(userId){
+    return new Promise((resolve,reject)=>{
+      let sub:Subscription = this.db.object('/USUARIOS/' + userId).valueChanges().subscribe((user)=>{
+        sub.unsubscribe();
+        resolve(user)
+      },(err)=>{
+        sub.unsubscribe();
+        reject(err)
+      })
+    })
+  }
+
+  habilitarTutor(id){
+    return this.db.object('/USUARIOS/' + id).update({tutor:true})
+          .then(res => {
+            this.db.object('/SOLICITUDESserTutor/' + id).remove()
+            .then(res => {
+              return true;
+            })
+            .catch(rej => {
+              return false;
+            });
+          })
+          .catch(rej => {
+            return false;
+          });
+  }
+
+  
+  RechazarSolSerTutor(id){
+    return this.db.object('/SOLICITUDESserTutor/' + id).remove()
+          .then(res => {
+            return true;
+          })
+          .catch(rej => {
+            return false;
+          });
+  }
+
+  
 
 
 }

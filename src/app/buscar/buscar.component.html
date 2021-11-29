@@ -2,8 +2,10 @@
     <p class="titulo">¿QUE BUSCAS?</p>
     <div class="buscar__opciones">
         <button (click)="opcion = 'tutor'" class="btn  btn-tutor mr-3">UN TUTOR</button>
-        <button (click)="envioSol = !envioSol" class="btn {{(envioSol)?'btn-success':'btn-otro '}}">
-            {{(envioSol)?'SOLICITUD DE TUTOR ENVIADA':'SER TUTOR'}}</button>
+        <button *ngIf="!alumno.tutor"  (click)="solicitarSerTutor()" class="btn {{(solicitudEstado=='pendiente')?'btn-success':'btn-otro '}}">
+            {{(solicitudEstado!='pendiente')?'SER TUTOR':'SOLICITUD DE TUTOR ENVIADA'}}</button>
+        <button *ngIf="alumno.tutor" disabled class="btn btn-success">
+                YA ERES TUTOR</button>
     </div>
 </div>
 
