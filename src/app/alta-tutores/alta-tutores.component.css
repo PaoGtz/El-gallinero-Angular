@@ -1,0 +1,14 @@
+
+.perfil__text-claro{color: rgba(66, 66, 66, 0.685);}
+.tutor{display: flex; align-items: center; width: 100%; padding: 1em 0;}
+.tutor:hover{background-color: rgb(242, 242, 253);}
+.tutor__foto{width: 15%; height: 130px; border-radius: 50%; object-fit: cover; margin-left: .5em;}
+.tutor-info{padding-left: 1em; width: 60%;}
+.lista__tutor{    max-height: 70vh; overflow-y: auto;}
+.btn-tutor{font-size: 1rem; margin: .5em 0;}
+@media only screen and (max-width: 767px) {
+    .tutor{flex-wrap: wrap;}
+    .tutor__foto{width: 35%; }
+    .tutor__acciones{display: flex; justify-content: center; align-items: center; width: 100%;}
+    .btn-tutor{margin: .5em;}
+}

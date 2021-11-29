@@ -13,12 +13,11 @@ export class BuscarComponent implements OnInit {
   {nombre:'Oscar Salas',solicitud: false,img: 'hombre.png'}, {nombre:'Alexia Flores',solicitud: false,img: 'mujer.png'}]
 
   nombre_tutor = '';
+  envioSol = false;
   nombre_sol = false;
   nombre_index = 0;
   tutor__img = '';
   opcion = 'buscar';
-  misMaterias = ['Alegebra II','Calculo Integral', 'Programacion I']
-  solicitudes = [{nombre: 'Juan Romo Lopez', materia: 'Alegebra II'},{nombre: 'Luis Salazar Gonzalez', materia: 'Programacion I'},{nombre: 'Fernanda Rabling Muñoz', materia: 'Alegebra II'}]
   ngOnInit(): void {
   }
 

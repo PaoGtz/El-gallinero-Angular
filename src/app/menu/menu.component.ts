@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
-
-
+import { UsrActivoService } from '../services/usr-activo.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +10,33 @@ import $ from 'jquery';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  tipoCuenta = "";
+  usuario;
+  alumno;
+  coord;
+  puesto ="";
+  constructor(private usrActivo: UsrActivoService,private router: Router,) { 
+    var datoUsuario = JSON.parse(localStorage.getItem('usuario'));
+    if(datoUsuario){
+      this.usrActivo.login(datoUsuario);
+    }
+    else{
+      this.router.navigate(['']);
+    }
+    this.usuario = this.usrActivo.usuario
+     this.tipoCuenta = this.usrActivo.tipoUsuario
+     if(this.tipoCuenta == 'Estudiante'){
+      this.alumno= this.usrActivo.alumno
+    }
+    else{
+      this.puesto =this.usrActivo.coord.puesto
+    }
+  }
+
+  cerrarSesion(){
+    localStorage.removeItem('usuario');
+    this.router.navigate(['']);
+  }
   
   contenido = 'perfil';
   

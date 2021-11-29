@@ -1,0 +1,10 @@
+.add-coord{background-color: rgb(225, 235, 247); padding: 1em; border-radius: 10px;}
+.perfil__text-claro{color: rgba(66, 66, 66, 0.685);}
+.coord{display: flex; align-items: center; width: 100%; padding: 1em 0;}
+.coord__foto{width: 30%; height: 130px; border-radius: 50%; object-fit: cover;}
+.coord-info{padding-left: 1em;}
+.lista__coord{    max-height: 70vh; overflow-y: auto;}
+@media only screen and (max-width: 767px) {
+    .lista__coord{max-height: 30vh;margin-bottom: 2em;}
+}
+

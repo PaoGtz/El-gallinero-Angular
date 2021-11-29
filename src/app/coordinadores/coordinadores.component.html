@@ -1,0 +1,51 @@
+<div class="coordinadores p-3">
+    
+    <div class="row">
+        <div class="col-sm-6 col-12">
+            <p class="titulo text-center">Coordinadores</p>
+
+            <div class="lista__coord" >
+                <div class="coord" *ngFor="let coordinador of coordinadores">
+                    <img *ngIf="coordinador.foto==2" src="../../assets/img/hombre.png" alt="" class="coord__foto">
+                    <img *ngIf="coordinador.foto==1" src="../../assets/img/mujer.png" alt="" class="coord__foto">
+                    <div class="coord-info">
+                        <p class="perfil__text mb-1">Id: <span class="perfil__text-claro">{{coordinador.id}}</span></p>
+                        <p class="perfil__text mb-1">Nombre: <span class="perfil__text-claro">{{coordinador.nombre}}</span></p>
+                        <p class="perfil__text mb-1">Centro: <span class="perfil__text-claro">{{coordinador.centro}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-12">
+            <div class="add-coord">
+                
+                <p class="titulo text-center">Nuevo Coordinador</p>
+                <form action="" >
+    
+                    <div class="form__item">
+                        <input placeholder="Id" name="usrid" type="number" class="form__input" [(ngModel)]="coord.id">
+                    </div>
+    
+                    <div class="form__item">
+                        <input placeholder="Nombre Completo" name="nombre" type="text" class="form__input" [(ngModel)]="coord.nombre">
+                    </div>
+
+                    <div class="form__item">
+                        <input placeholder="Contraseña" name="passw" type="password" class="form__input" [(ngModel)]="coord.passw">
+                    </div>
+    
+                    <div class="form__item">
+                        <select name="" id="" class="custom-select" name="centro" required [(ngModel)]="coord.centro">
+                            <option *ngFor="let centro of centros" value="{{centro}}">{{centro}}</option>
+                        </select>
+                    </div>
+    
+                    <div class="form__item">
+                        <a (click)="addCoord()"  href="javascript:void(0)" class="btn btn__blue">Registrar Coordinador</a>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

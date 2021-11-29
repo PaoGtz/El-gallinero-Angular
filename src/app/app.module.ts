@@ -10,6 +10,9 @@ import { SesionComponent } from './sesion/sesion.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { AngularFireModule } from '@angular/fire';
+import { TutorComponent } from './tutor/tutor.component';
+import { CoordinadoresComponent } from './coordinadores/coordinadores.component';
+import { AltaTutoresComponent } from './alta-tutores/alta-tutores.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoscYdJv2urd-66YjdC9l7ARNl1mAW6BA",
@@ -28,7 +31,10 @@ const firebaseConfig = {
     MenuComponent,
     SesionComponent,
     PerfilComponent,
-    BuscarComponent
+    BuscarComponent,
+    TutorComponent,
+    CoordinadoresComponent,
+    AltaTutoresComponent
   ],
   imports: [
     BrowserModule,

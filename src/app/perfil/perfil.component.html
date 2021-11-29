@@ -1,10 +1,12 @@
 <div class="perfil">
 
-    <img src="../../assets/img/mujer.png" alt="" class="perfil__img mb-3">
+    <img *ngIf="usuario.foto == 1" src="../../assets/img/mujer.png" alt="" class="perfil__img mb-3">
+    <img *ngIf="usuario.foto == 2" src="../../assets/img/hombre.png" alt="" class="perfil__img mb-3">
 
-    <p class="perfil__titulo">Paola Gutierrez Salazar <button class="perfil__editar"><i class="fas fa-user-edit"></i></button></p>
-    <p class="perfil__text">Carrera: <span class="perfil__text-claro">Ingenieria en sistemas computacionales</span></p>
-    <p class="perfil__text">Semestre:<span class="perfil__text-claro"> 9</span></p>
-
+    <p class="perfil__titulo">{{usuario.nombre}} <button (click)="cambioFoto()" class="perfil__editar"><i class="fas fa-user-edit"></i></button></p>
+    <p class="perfil__text">Id: <span class="perfil__text-claro">{{usuario.id}}</span></p>
+    <p class="perfil__text">Centro: <span class="perfil__text-claro">{{usuario.centro}}</span></p>
+    <p class="perfil__text" *ngIf="tipoCuenta == 'Estudiante'">Semestre:<span class="perfil__text-claro"> {{alumno.semestre}}</span></p>
+    <p class="perfil__text" *ngIf="tipoCuenta == 'Estudiante'">Tutor:<span class="perfil__text-claro"> {{alumno.tutor?'Habilitado':'Inhabilitado'}}</span></p>
     
 </div>

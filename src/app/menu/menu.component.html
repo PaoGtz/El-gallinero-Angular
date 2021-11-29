@@ -14,9 +14,11 @@
         <ul class="col-12 desplegable">
             <!--<li class="desplegable__item"><button (click)="contenido='inicio'"  class="desplegable__link">Inicio</button></li>-->
             <li class="desplegable__item"><button (click)="contenido='perfil'"  class="desplegable__link">Perfil</button></li>
-            <li class="desplegable__item"><button (click)="contenido='buscar'"  class="desplegable__link">Buscar</button></li>
-            <li class="desplegable__item"><button (click)="contenido='buscar'"  class="desplegable__link">Tutor</button></li>
-            <li class="desplegable__item"><button [routerLink]="['/sesion']"  class="desplegable__link">Cerrar Sesion</button></li>
+            <li class="desplegable__item" *ngIf="puesto == 'admin'"><button (click)="contenido='altaCoord'"  class="desplegable__link">Coordinadores</button></li>
+            <li class="desplegable__item" *ngIf="tipoCuenta == 'Coordinador'"><button (click)="contenido='tutor'"  class="desplegable__link">Tutores</button></li>
+            <li class="desplegable__item" *ngIf="tipoCuenta == 'Estudiante'"><button (click)="contenido='buscar'"  class="desplegable__link">Buscar</button></li>
+            <li class="desplegable__item" *ngIf="tipoCuenta == 'Estudiante'"><button (click)="contenido='tutor'"  class="desplegable__link">Tutor</button></li>
+            <li class="desplegable__item" ><button (click)="cerrarSesion()"  class="desplegable__link">Cerrar Sesion</button></li>
         </ul>
     </div>
 
@@ -24,7 +26,7 @@
 
         <div class="col-3 px-0 menu__content">
             <img src="../../assets/img/logo.png" alt="" class="menu__logo">
-            <p class="menu__nombre">Paola Gutierrez</p>
+            <p class="menu__nombre">{{usuario.nombre}}</p>
             <ul class="menu__list">
                 <!--
                 <li class="menu__item">
@@ -34,14 +36,20 @@
                 <li class="menu__item">
                     <button (click)="contenido='perfil'" class="btn menu__btn {{(contenido=='perfil')?'menu__btn-select':''}}">Perfil</button>
                 </li>
-                <li class="menu__item">
+                <li class="menu__item" *ngIf="puesto == 'admin'">
+                    <button (click)="contenido='altaCoord'" class="btn menu__btn {{(contenido=='altaCoord')?'menu__btn-select':''}}">Coordinadores</button>
+                </li>
+                <li class="menu__item" *ngIf="tipoCuenta == 'Coordinador'">
+                    <button (click)="contenido='altaTutores'" class="btn menu__btn {{(contenido=='altaTutores')?'menu__btn-select':''}}">Tutores</button>
+                </li>
+                <li class="menu__item" *ngIf="tipoCuenta == 'Estudiante'">
                     <button (click)="contenido='buscar'" class="btn menu__btn {{(contenido=='buscar')?'menu__btn-select':''}}">Buscar</button>
                 </li>
-                <li class="menu__item">
-                    <button (click)="contenido='tutor'" class="btn menu__btn {{(contenido=='tutor')?'menu__btn-select':''}}">Tutor</button>
+                <li class="menu__item" *ngIf="tipoCuenta == 'Estudiante'">
+                    <button (click)="contenido='tutor'" [disabled]="!alumno.tutor" class="btn menu__btn {{(contenido=='tutor')?'menu__btn-select':''}}">Tutor</button>
                 </li>
                 <li class="menu__item">
-                    <button [routerLink]="['/sesion']" class="btn menu__btn-cerrar">Cerrar Sesion</button>
+                    <button (click)="cerrarSesion()"  class="btn menu__btn-cerrar">Cerrar Sesion</button>
                 </li>
             </ul>
         </div>
@@ -56,6 +64,18 @@
 
         <div *ngIf="contenido=='buscar'" class="col-12 col-sm-9">
             <app-buscar></app-buscar>
+        </div>
+
+        <div *ngIf="contenido=='tutor'" class="col-12 col-sm-9">
+            <app-tutor></app-tutor>
+        </div>
+
+        <div *ngIf="contenido=='altaCoord'" class="col-12 col-sm-9">
+            <app-coordinadores></app-coordinadores>
+        </div>
+
+        <div *ngIf="contenido=='altaTutores'" class="col-12 col-sm-9">
+            <app-alta-tutores></app-alta-tutores>
         </div>
 
         

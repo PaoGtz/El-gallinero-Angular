@@ -1,0 +1,32 @@
+<div class="buscar__sertutor">
+    <p class="titulo"> Mis materias...</p>
+    <div class="container px-0">
+        <div class="row mx-0">
+            <p><span *ngFor="let materia of misMaterias" class="badge badge-info mr-2">{{materia}} <a href="" class="borrarM">X</a></span> <span class="badge badge-success"><a class="añadirM" href="">Añadir otra</a></span></p>
+        </div>
+
+        <div class="row mx-0 mt-4">
+            <p class="titulo">Solicitudes</p>
+            <table class="table table-hover ">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Materia</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody class="solicitudes__table">
+                  <tr *ngFor="let solicitud of solicitudes">
+                    <th>{{solicitud.nombre}}</th>
+                    <td>{{solicitud.materia}}</td>
+                    <td class="buscar__acciones">
+                        <button class="btn btn__mensaje btn__accion"><i class="fas fa-comment-dots"></i></button>
+                        <button class="btn btn__rechazar btn__accion"><i class="fas fa-times"></i></button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

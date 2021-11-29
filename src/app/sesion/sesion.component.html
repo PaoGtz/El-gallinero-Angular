@@ -39,6 +39,10 @@
                     </div>
 
                     <div class="form__item">
+                        <input required placeholder="Semestre" name="semestre" type="number" class="form__input" [(ngModel)]="nuevousr.semestre">
+                    </div>
+
+                    <div class="form__item">
                         <select name="" id="" class="custom-select" name="centro" required [(ngModel)]="nuevousr.centro">
                             <option *ngFor="let centro of centros" value="{{centro}}">{{centro}}</option>
                         </select>
