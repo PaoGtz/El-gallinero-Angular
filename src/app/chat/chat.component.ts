@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatsService } from '../services/chats.service';
+import { UsrActivoService } from '../services/usr-activo.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +9,17 @@ import { ChatsService } from '../services/chats.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  
+  tipoCuenta = "";
+  usuario;
+  alumno;
+  coord;
   text = ""; 
-  constructor(public chat: ChatsService) { }
+  constructor(public chat: ChatsService, private usrActivo: UsrActivoService, private fbService: FirebaseService) {
+
+    this.usuario = this.usrActivo.usuario
+    this.tipoCuenta = this.usrActivo.tipoUsuario
+
+  }
 
   ngOnInit(): void {
   }

@@ -49,6 +49,9 @@
                     <button (click)="contenido='tutor'" [disabled]="!alumno.tutor" class="btn menu__btn {{(contenido=='tutor')?'menu__btn-select':''}}">Tutor</button>
                 </li>
                 <li class="menu__item">
+                    <button routerLink = "/chat" class="btn menu__btn">Chat</button>
+                </li>
+                <li class="menu__item">
                     <button (click)="cerrarSesion()"  class="btn menu__btn-cerrar">Cerrar Sesion</button>
                 </li>
             </ul>
