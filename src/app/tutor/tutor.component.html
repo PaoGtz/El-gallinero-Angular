@@ -2,7 +2,7 @@
     <p class="titulo"> Mis materias...</p>
     <div class="container px-0">
         <div class="row mx-0">
-            <p><span *ngFor="let materia of misMaterias" class="badge badge-info mr-2">{{materia}} <a href="" class="borrarM">X</a></span> <span class="badge badge-success"><a class="añadirM" href="">Añadir otra</a></span></p>
+            <p><span *ngFor="let materia of misMaterias" class="badge badge-info mr-2">{{materia}} <a class="borrarM" (click)="borrarM(materia)">X</a></span> <span class="badge badge-success"><a href="" class="añadirM" data-toggle="modal" data-target="#exampleModalLong">Añadir otra</a></span></p>
         </div>
 
         <div class="row mx-0 mt-4">
@@ -29,4 +29,33 @@
               </table>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Materias</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover">
+          <thead>
+            <tr><th>Selecciona tus materias</th></tr>
+          </thead>
+          <tbody class="">
+            <tr *ngFor="let materia of materias">
+              <td><a href="" (click)="setMateria(materia)" data-dismiss="modal">{{materia}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>
