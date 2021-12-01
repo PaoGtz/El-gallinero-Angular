@@ -1,0 +1,66 @@
+.chatContainer{
+    padding: 30px;
+    width: 100%;
+    height: max-content;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px;
+    background-color: ghostwhite;
+}
+
+.local{
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(190, 71, 55);
+    max-width: 80%;
+    color: white;
+    font-size: 17px;
+    align-self: flex-end;
+}
+
+.remoto{
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(218, 85, 67);
+    max-width: 80%;
+    color: white;
+    font-size: 17px;
+    align-self: flex-start;
+}
+
+.inputContainer{
+    background-color: ghostwhite;
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    margin-bottom: 24px;
+}
+
+input{
+    width:   100%;
+    border-color: rgb(190, 71, 55);
+    border-width: 5px;
+    border-radius: 20px;
+}
+
+.fas{
+    color: rgb(190, 71, 55);
+    font-size: 50px;
+}
+
+button{
+    background-color: white;
+    border-color: white;
+}
+
+#global {
+    border: 1px solid #ddd;
+    overflow-y: scroll;
+}
+
+#mensajes {
+    height: auto;
+}
+
+.texto {}

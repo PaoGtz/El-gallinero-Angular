@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { TutorComponent } from './tutor/tutor.component';
 import { CoordinadoresComponent } from './coordinadores/coordinadores.component';
 import { AltaTutoresComponent } from './alta-tutores/alta-tutores.component';
+import { ChatComponent } from './chat/chat.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoscYdJv2urd-66YjdC9l7ARNl1mAW6BA",
@@ -34,7 +35,8 @@ const firebaseConfig = {
     BuscarComponent,
     TutorComponent,
     CoordinadoresComponent,
-    AltaTutoresComponent
+    AltaTutoresComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,8 @@ const firebaseConfig = {
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireModule, 
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { SesionComponent } from './sesion/sesion.component';
 import { TutorComponent } from './tutor/tutor.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: 'menu', component: MenuComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'tutor', component: TutorComponent},
   { path: 'altaCoord', component: CoordinadoresComponent},
   { path: 'altaTutores', component: AltaTutoresComponent},
+  { path: 'chat', component: ChatComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'sesion'}
 ];
 
