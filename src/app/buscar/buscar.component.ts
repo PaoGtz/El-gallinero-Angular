@@ -30,7 +30,11 @@ export class BuscarComponent implements OnInit {
           }
         })
     }
+    this.getTutores()
   }
+
+  materias1 = []
+  tutores1 = []
 
   materias = ['Programacion','Algebra I','Calculo Integral','Redaccion','Finanzas','Algebra II']
   tutores = [{nombre:'Paola Gutierrez',solicitud: false,img: 'mujer.png'}, {nombre:'Adriana Torres',solicitud: false,img: 'mujer.png'}, 
@@ -69,6 +73,10 @@ export class BuscarComponent implements OnInit {
     else{
       this.feedback.Mensaje("","Ya haz enviado una solicitud")
     }
+  }
+
+  getTutores(){
+
   }
 
 }
