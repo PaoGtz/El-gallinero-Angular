@@ -55,12 +55,19 @@ export class BuscarComponent implements OnInit {
     this.nombre_sol = tutor.solicitud;
     this.nombre_index = i;
     this.tutor__img = tutor.img;
+    console.log(this.id_tuts[this.nombre_index]);
+    
   }
 
   changeSol(){
     
     this.tutores[this.nombre_index].solicitud = !this.tutores[this.nombre_index].solicitud
     this.nombre_sol = this.tutores[this.nombre_index].solicitud
+    
+    var us = JSON.parse(localStorage.getItem('usuario'));
+    //console.log(us.id);
+    
+    this.firebaseS.solicitarTutor(this.id_tuts[this.nombre_index],us.id,this.materia_sel,us.nombre)
   }
 
   solicitarSerTutor(){

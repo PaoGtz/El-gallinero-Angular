@@ -33,7 +33,7 @@
                         <p class="tutor__info-nombre">{{nombre_tutor}}<button routerLink = "/chat" ><i class="fas fa-sms"></i></button></p>
                         <p class="tutor__info-text">Carrera: <spam class="tutor__info-claro">Ingenieria en sistemas</spam></p>
                         <p class="tutor__info-text">Semestre: <spam class="tutor__info-claro">9</spam></p>
-                        <p class="tutor__info-text">Materias: <spam class="tutor__info-claro">progra....</spam></p>
+                        <p class="tutor__info-text">Materia: <spam class="tutor__info-claro">{{materia_sel}}</spam></p>
                         <button (click)="changeSol()" class="btn {{(nombre_sol)? 'tutor__info2-btn' : 'tutor__info-btn'}}">{{(nombre_sol)? 'Solicitud enviada':'Enviar solicitud'}}<i class="far fa-bell"></i></button>
                         
                     </div>

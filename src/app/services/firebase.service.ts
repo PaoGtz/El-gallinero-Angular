@@ -170,7 +170,7 @@ cambiarFoto(nuevoValor,id){
 
     return this.db.object('/USUARIOS/' + id + '/materias/' + id_mat).update({mat})
       .then(res => {
-        this.db.object('/MATERIAS/' + mat + '/' + id).update({id: id, img: foto, nombre: usu.nombre, solicitud: 'false'})
+        this.db.object('/MATERIAS/' + mat + '/' + id).update({id: id, img: foto, nombre: usu.nombre, solicitud: false})
           .then(res => {
             return true;
           })
@@ -211,5 +211,48 @@ cambiarFoto(nuevoValor,id){
     })
 }
 
+solicitarTutor(id_tut, id_al, mat, name){
+  return this.db.object('/USUARIOS/' + id_tut + '/alumnos_asg/' + id_al).update({id: id_al, materia: mat, nombre: name})
+    .then(res => {
+      this.db.object('/MATERIAS/' + mat + '/' + id_tut).update({solicitud: true})
+        .then(res => {
+          return true
+        })
+        .catch(rej => {
+          return false
+        })
+    })
+    .catch(rej => {
+      return false
+    })
+}
+
+getSolicitudes(id_tut){
+  return new Promise((resolve,reject)=>{
+    let sub:Subscription = this.db.object('/USUARIOS/' + id_tut + '/alumnos_asg/').valueChanges().subscribe((solicitudes)=>{
+      sub.unsubscribe();
+      resolve(solicitudes)
+    },(err)=>{
+      sub.unsubscribe();
+      reject(err)
+    })
+  })
+}
+
+rechazarSolicitud(id_tut, id_al, mat){
+  return this.db.object('/USUARIOS/' + id_tut + '/alumnos_asg/' + id_al).remove()
+    .then(res => {
+      this.db.object('/MATERIAS/' + mat + '/' + id_tut).update({solicitud: false})
+        .then(res => {
+          return true
+        })
+        .catch(rej => {
+          return false
+        })
+    })
+    .catch(rej => {
+      return false
+    })
+}
 
 }

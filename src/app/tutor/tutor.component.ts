@@ -1,3 +1,4 @@
+import { AttrAst } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -9,17 +10,18 @@ import { FirebaseService } from '../services/firebase.service';
 export class TutorComponent implements OnInit {
   materias = ['Algebra I', 'Algebra II', 'Algebra Lineal', 'Calculo Diferencial', 'Calculo Integral', 'Calculo Vectorial', 'Ecuaciones Diferenciales', 'Programacion I', 'Programacion II', 'Programacion III', 'Estructuras de Datos', 'Dart Flutter', 'React Native', 'Angular', 'Redes', 'Circuitos Electronicos']
   misMaterias = []
-  solicitudes = [{nombre: 'Juan Romo Lopez', materia: 'Alegebra II'},{nombre: 'Luis Salazar Gonzalez', materia: 'Programacion I'},{nombre: 'Fernanda Rabling Muñoz', materia: 'Alegebra II'}]
+  solicitudes = []
   id_tutor = 0;
   mats = "";
   constructor(private firebaseS: FirebaseService) {
     let tut = JSON.parse(localStorage.getItem('usuario'));
     //console.log(tut.id);
+    this.id_tutor = tut.id
     firebaseS.getUsuario(tut.id)
       .then(tutor => {
         console.log(tutor);
-        
         this.getMaterias(tutor); 
+        this.getSolicitudes()
       })
       .catch(rej => console.error()
       );
@@ -57,7 +59,7 @@ export class TutorComponent implements OnInit {
         this.misMaterias[i] = "$";
       }
       if (this.misMaterias[i] != "$") {
-        arax[i] = this.misMaterias[i]
+        arax.push(this.misMaterias[i])
       }
     }
     this.misMaterias = [];
@@ -65,6 +67,55 @@ export class TutorComponent implements OnInit {
     console.log("borrado " + mat);
     console.log(this.misMaterias);
     this.firebaseS.quitarMateria(this.id_tutor,this.materias.indexOf(mat),mat)
+  }
+
+  getSolicitudes(){
+    var sol = []
+    var id_tuts = []
+    this.solicitudes = []
+
+    this.firebaseS.getSolicitudes(this.id_tutor)
+      .then((res:any) => {
+        console.log(res);
+        if(res){
+          for (const property in res) {
+            sol.push({id: res[property]['id']})
+          }
+          console.log(sol);
+          for (let i = 0; i < sol.length; i++) {
+            id_tuts.push(sol[i].id)
+          }
+          console.log(id_tuts);
+          
+          for (let i = 0; i < id_tuts.length; i++) {
+            console.log(i);
+            
+            this.solicitudes.push(res[id_tuts[i]])
+          }
+          console.log(this.solicitudes);
+          
+        }
+        return true
+      })
+      .catch(rej => {
+        return false
+      })
+  }
+
+  rechazarSol(id_al,mat){
+    let arax = []
+    for (let i = 0; i < this.solicitudes.length; i++) {
+      if (id_al == this.solicitudes[i].id) {
+        this.solicitudes[i] = '$';
+      }
+      if (this.solicitudes[i] != '$') {
+        arax.push(this.solicitudes[i]);
+      }
+    }
+    this.solicitudes = []
+    this.solicitudes = arax
+    
+    this.firebaseS.rechazarSolicitud(this.id_tutor,id_al,mat);
   }
 
 }
