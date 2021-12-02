@@ -36,9 +36,9 @@ export class BuscarComponent implements OnInit {
   materias1 = []
   tutores1 = []
 
-  materias = ['Programacion','Algebra I','Calculo Integral','Redaccion','Finanzas','Algebra II']
-  tutores = [{nombre:'Paola Gutierrez',solicitud: false,img: 'mujer.png'}, {nombre:'Adriana Torres',solicitud: false,img: 'mujer.png'}, 
-  {nombre:'Oscar Salas',solicitud: false,img: 'hombre.png'}, {nombre:'Alexia Flores',solicitud: false,img: 'mujer.png'}]
+  materias = ['Algebra I', 'Algebra II', 'Algebra Lineal', 'Calculo Diferencial', 'Calculo Integral', 'Calculo Vectorial', 'Ecuaciones Diferenciales', 'Programacion I', 'Programacion II', 'Programacion III', 'Estructuras de Datos', 'Dart Flutter', 'React Native', 'Angular', 'Redes', 'Circuitos Electronicos']
+  tutores = []
+  id_tuts = []
 
   nombre_tutor = '';
   envioSol = false;
@@ -46,6 +46,7 @@ export class BuscarComponent implements OnInit {
   nombre_index = 0;
   tutor__img = '';
   opcion = 'buscar';
+  materia_sel = '';
   ngOnInit(): void {
   }
 
@@ -73,6 +74,34 @@ export class BuscarComponent implements OnInit {
     else{
       this.feedback.Mensaje("","Ya haz enviado una solicitud")
     }
+  }
+
+  getFiltroM(){
+    var tuts = []
+    this.id_tuts = []
+    this.tutores = []
+
+    console.log(this.materia_sel);
+    this.firebaseS.getFiltroM(this.materia_sel)
+      .then((res: any) =>{
+        if(res){
+          for (const property in res) {
+            tuts.push({id: res[property]['id']})
+           }
+           for (let i = 0; i < tuts.length; i++) {
+             this.id_tuts.push(tuts[i].id)
+           }
+           console.log(this.id_tuts);
+           
+        }        
+        for (let i = 0; i < this.id_tuts.length; i++) {
+          console.log(res[this.id_tuts[i]]);
+          this.tutores.push(res[this.id_tuts[i]])
+        }
+        console.log(this.tutores);
+        
+      })
+      .catch(rej => console.error())
   }
 
   getTutores(){

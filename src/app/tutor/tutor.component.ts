@@ -14,7 +14,7 @@ export class TutorComponent implements OnInit {
   mats = "";
   constructor(private firebaseS: FirebaseService) {
     let tut = JSON.parse(localStorage.getItem('usuario'));
-    console.log(tut.id);
+    //console.log(tut.id);
     firebaseS.getUsuario(tut.id)
       .then(tutor => {
         console.log(tutor);
@@ -64,7 +64,7 @@ export class TutorComponent implements OnInit {
     this.misMaterias = arax;
     console.log("borrado " + mat);
     console.log(this.misMaterias);
-    this.firebaseS.quitarMateria(this.id_tutor,this.materias.indexOf(mat))
+    this.firebaseS.quitarMateria(this.id_tutor,this.materias.indexOf(mat),mat)
   }
 
 }

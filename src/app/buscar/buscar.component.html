@@ -15,8 +15,8 @@
     <div class="container px-0">
         <div class="row mx-0">
             <div class="col-sm-6 p0s">
-                <select name="" id="" class="custom-select">
-                    <option *ngFor="let materia of materias" value="">{{materia}}</option>
+                <select name="" id="" class="custom-select" [(ngModel)]="materia_sel" (change)="getFiltroM()">
+                    <option *ngFor="let materia of materias" value="" [value]="materia">{{materia}}</option>
                 </select>
 
                 <div class="lista-tutores">
